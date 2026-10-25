@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=27">
+  <link rel="stylesheet" href="styles.css?v=33">
 </head>
 <body>
   <aside class="lateral" id="lateral" aria-label="Menu do painel">
@@ -101,6 +101,11 @@
 
     <main>
       <p class="aviso" id="aviso" hidden></p>
+      <div class="contagem" id="contagem" hidden aria-live="off">
+        <span class="contagem-rotulo" id="contagem-rotulo">A apuração começa às 17h (Brasília)</span>
+        <b class="contagem-tempo" id="contagem-tempo">--:--:--</b>
+        <span class="contagem-sub" id="contagem-sub">os resultados do TSE aparecem aqui sozinhos</span>
+      </div>
 
       <section class="painel" id="tab-geral">
     <section class="hero">
@@ -293,6 +298,6 @@
     <form method="dialog"><button class="botao primario">Entendi</button></form>
   </dialog>
   <button type="button" class="sair-telao" id="sair-telao">Sair do telão</button>
-  <script type="module" src="app.js?v=32"></script>
+  <script type="module" src="app.js?v=33"></script>
 </body>
 </html>

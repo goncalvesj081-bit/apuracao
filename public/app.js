@@ -1841,10 +1841,42 @@ const SECOES = {
 };
 let aba = "geral";
 
+// ------------------------------------------------------------- contagem regressiva
+
+// os resultados só saem depois que fecham as urnas no país inteiro: 17h de Brasília (20h UTC)
+const INICIO_APURACAO = { 1: Date.parse("2026-10-04T20:00:00Z"), 2: Date.parse("2026-10-25T20:00:00Z") };
+
+function renderContagem() {
+  const el = $("#contagem");
+  const d = atual();
+  const inicio = INICIO_APURACAO[cfg.turno];
+  const semUrnas = !d?.brasil?.apuradas;
+  // só para o TSE de verdade, antes da primeira urna (e até 2 horas depois das 17h, se o TSE atrasar)
+  const mostra = cfg.fonte === "tse" && ANO === "2026" && !ELEICAO_URL && inicio && semUrnas && Date.now() < inicio + 2 * 3600_000;
+  el.hidden = !mostra;
+  if (!mostra) return;
+  const falta = inicio - Date.now();
+  if (falta > 0) {
+    const s = Math.floor(falta / 1000);
+    const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), seg = s % 60;
+    const dd = (n) => String(n).padStart(2, "0");
+    $("#contagem-rotulo").textContent = "A apuração começa às 17h (Brasília)";
+    $("#contagem-tempo").textContent = h >= 24 ? `${Math.floor(h / 24)}d ${dd(h % 24)}:${dd(m)}:${dd(seg)}` : `${dd(h)}:${dd(m)}:${dd(seg)}`;
+    $("#contagem-sub").textContent = "os resultados do TSE aparecem aqui sozinhos, sem precisar recarregar";
+  } else {
+    $("#contagem-rotulo").textContent = "As urnas fecharam";
+    $("#contagem-tempo").textContent = "Aguardando o TSE";
+    $("#contagem-sub").textContent = "os primeiros números costumam sair poucos minutos depois das 17h";
+  }
+  el.classList.toggle("fechou", falta <= 0);
+}
+setInterval(renderContagem, 1000);
+
 function renderAll() {
   const d = atual();
   const d1 = primeiroTurno();
   renderTopo(d);
+  renderContagem();
   if (aba === "geral") {
     renderPlacar(d);
     renderMini(d);
