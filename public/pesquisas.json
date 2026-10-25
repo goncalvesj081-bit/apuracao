@@ -1,5 +1,5 @@
 {
-  "atualizado": "2026-10-24",
+  "atualizado": "2026-10-25",
   "nota": "Pesquisas de 2º turno para presidente (Flávio Bolsonaro × Lula) desde o 1º turno, reunidas das tabelas da Wikipédia em português e em inglês e conferidas nas reportagens, com o link de cada fonte. \"Conferida\" = os mesmos números aparecem em duas fontes independentes; \"a conferir\" = só uma delas traz a pesquisa ou as datas não batem.",
   "candidatos": {
     "22": "FLAVIO BOLSONARO",
@@ -23,6 +23,28 @@
       },
       "validos": null,
       "fonte": "https://g1.globo.com/politica/eleicoes/2026/pesquisa-eleitoral/noticia/2026/10/24/quaest-2o-turno-votos-validos.ghtml",
+      "conferido": true
+    },
+    {
+      "instituto": "PoderData",
+      "contratante": null,
+      "campo": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "divulgacao": "2026-10-25",
+      "amostra": 4000,
+      "margem": 1.6,
+      "registro": "BR-02828/2026",
+      "totais": {
+        "22": 49,
+        "13": 48
+      },
+      "validos": {
+        "22": 51,
+        "13": 49
+      },
+      "fonte": "https://www.poder360.com.br/poderdata/flavio-tem-51-e-lula-tem-49-dos-votos-validos-diz-poderdata-aya-2/",
       "conferido": true
     },
     {
@@ -1220,16 +1242,6 @@
       "divulgacao": "2026-10-24",
       "amostra": 4001,
       "registro": "BR-06173/2026"
-    },
-    {
-      "instituto": "PoderData",
-      "campo": [
-        "2026-10-23",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-25",
-      "amostra": 4000,
-      "registro": "BR-02828/2026"
     }
   ]
 }
