@@ -14,6 +14,10 @@ MANUAIS=[
   {"instituto":"Veritá","contratante":None,"campo":["2026-10-18","2026-10-22"],"divulgacao":"2026-10-23","amostra":15554,"margem":1,
    "registro":"BR-06070/2026","totais":{"22":50.2,"13":47.5},"validos":{"22":51.3,"13":48.7},
    "fonte":"https://ncnews.com.br/2026/10/23/verita-flavio-bolsonaro-lula-2-turno/","conferido":True},
+  # a lista em português copiou nesta rodada os números da de 18–22/10; estes são os das reportagens
+  {"instituto":"Veritá","campo":["2026-10-19","2026-10-23"],"divulgacao":"2026-10-24","amostra":15554,"margem":1,"registro":"BR-03181/2026",
+   "totais":{"22":49.44,"13":46.46},"validos":{"22":51.56,"13":48.44},
+   "fonte":"https://exame.com/brasil/pesquisa-verita-flavio-bolsonaro-tem-5156-e-lula-4844-no-2o-turno/","conferido":True},
   # a Wikipédia em inglês traz Flávio 45,1; a em português (45,6) bate com os 51,4% dos válidos da reportagem
   {"instituto":"Instituto França","campo":["2026-10-21","2026-10-23"],"totais":{"22":45.6,"13":43.1},"validos":{"22":51.4,"13":48.6},
    "fonte":"https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-514-contra-486-de-lula-em-votos-validos-diz-pesquisa/","conferido":True},
@@ -34,9 +38,8 @@ for p in o:
     if k in NOTICIAS and not p['conferido']: p['fonte'],p['divulgacao']=NOTICIAS[k]; p['conferido']=True
     p['fonte']=p['fonte'] or WP
     fin.append(p)
-# linhas da Wikipédia que repetem outra pesquisa (a Veritá de 19–23/10 copia os números da de 18–22/10;
-# nenhuma reportagem traz rodada nova até 24/10)
-IGNORAR={("Veritá","2026-10-23")}
+# linhas da Wikipédia que repetem outra pesquisa
+IGNORAR=set()
 fin=[p for p in fin if (p['instituto'],p['campo'][1]) not in IGNORAR]
 por={(p['instituto'],p['campo'][1]):p for p in fin}
 for m in MANUAIS:
