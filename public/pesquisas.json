@@ -431,7 +431,7 @@
         "2026-10-21"
       ],
       "divulgacao": "2026-10-23",
-      "amostra": 4,
+      "amostra": 2000,
       "margem": 2.19,
       "registro": "BR-03365/2026",
       "totais": {
@@ -743,15 +743,18 @@
         "2026-10-12",
         "2026-10-16"
       ],
-      "divulgacao": null,
-      "amostra": 2,
+      "divulgacao": "2026-10-17",
+      "amostra": 15554,
       "margem": 1,
       "registro": "BR-01107/2026",
       "totais": {
         "22": 49.7,
         "13": 47.7
       },
-      "validos": null,
+      "validos": {
+        "22": 51.1,
+        "13": 48.9
+      },
       "fonte": "https://www.cnnbrasil.com.br/eleicoes/verita-flavio-tem-511-dos-votos-validos-no-2o-turno-lula-489/",
       "conferido": true
     },

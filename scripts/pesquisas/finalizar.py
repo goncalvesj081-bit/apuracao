@@ -18,6 +18,7 @@ MANUAIS=[
   {"instituto":"Veritá","campo":["2026-10-19","2026-10-23"],"divulgacao":"2026-10-24","amostra":15554,"margem":1,"registro":"BR-03181/2026",
    "totais":{"22":49.44,"13":46.46},"validos":{"22":51.56,"13":48.44},
    "fonte":"https://exame.com/brasil/pesquisa-verita-flavio-bolsonaro-tem-5156-e-lula-4844-no-2o-turno/","conferido":True},
+  {"instituto":"Veritá","campo":["2026-10-12","2026-10-16"],"divulgacao":"2026-10-17","validos":{"22":51.1,"13":48.9}},
   # a Wikipédia em inglês traz Flávio 45,1; a em português (45,6) bate com os 51,4% dos válidos da reportagem
   {"instituto":"Instituto França","campo":["2026-10-21","2026-10-23"],"totais":{"22":45.6,"13":43.1},"validos":{"22":51.4,"13":48.6},
    "fonte":"https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-514-contra-486-de-lula-em-votos-validos-diz-pesquisa/","conferido":True},

@@ -88,7 +88,8 @@ for e in en:
         if r=='validos': val={'22':p['F'],'13':p['L']}
         if r=='diverge': print('DIVERGE',e['nome'],e['campo'],e['L'],e['F'],'| pt',p['L'],p['F'])
     else: print('só en:',e['nome'],e['campo'],e['L'],e['F'])
-    out.append(dict(instituto=e['nome'],contratante=contr,campo=e['campo'],divulgacao=e['data'],amostra=e['amostra'] or (m and m[1]['amostra']),margem=e['margem'] if e['margem'] is not None else (m and m[1]['margem']),registro=reg,totais={'22':e['F'],'13':e['L']},validos=val,fonte=e['url'],conferido=conf,**({'antesDo1Turno':True} if e['campo'][1]<'2026-10-04' else {})))
+    # menos de 200 entrevistas = coluna trocada na lista em inglês (linha com formato diferente): vale a do português
+    out.append(dict(instituto=e['nome'],contratante=contr,campo=e['campo'],divulgacao=e['data'],amostra=(e['amostra'] if (e['amostra'] or 0)>=200 else None) or (m and m[1]['amostra']),margem=e['margem'] if e['margem'] is not None else (m and m[1]['margem']),registro=reg,totais={'22':e['F'],'13':e['L']},validos=val,fonte=e['url'],conferido=conf,**({'antesDo1Turno':True} if e['campo'][1]<'2026-10-04' else {})))
 for i,p in enumerate(pt):
     if i in usados: continue
     if p['L'] is None: continue
