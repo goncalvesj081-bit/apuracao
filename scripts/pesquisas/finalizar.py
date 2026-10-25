@@ -8,12 +8,20 @@ WP='https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3
 # confirmadas nas reportagens (só a Wikipédia em português trazia)
 NOTICIAS={('Alfa','2026-10-22'):('https://exame.com/brasil/pesquisa-alfa-a-dois-dias-do-2o-turno-flavio-bolsonaro-tem-52-e-lula-48/','2026-10-23'),
           ('Real Time Big Data','2026-10-22'):('https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/real-time-big-data-presidente-outubro-2026-segundo-turno-2/','2026-10-23')}
-# saíram nas reportagens mas ainda não estão em nenhuma das Wikipédias (conferidas em dois veículos);
-# se a Wikipédia já tiver o mesmo instituto com o mesmo fim de campo, vale a da Wikipédia
+# conferidas à mão nas reportagens: entram se nenhuma Wikipédia tiver a pesquisa, ou substituem os
+# campos da versão da Wikipédia (mesmo instituto e mesmo fim de campo) quando ela não estava conferida
 MANUAIS=[
   {"instituto":"Veritá","contratante":None,"campo":["2026-10-18","2026-10-22"],"divulgacao":"2026-10-23","amostra":15554,"margem":1,
    "registro":"BR-06070/2026","totais":{"22":50.2,"13":47.5},"validos":{"22":51.3,"13":48.7},
    "fonte":"https://ncnews.com.br/2026/10/23/verita-flavio-bolsonaro-lula-2-turno/","conferido":True},
+  # a Wikipédia em inglês traz Flávio 45,1; a em português (45,6) bate com os 51,4% dos válidos da reportagem
+  {"instituto":"Instituto França","campo":["2026-10-21","2026-10-23"],"totais":{"22":45.6,"13":43.1},"validos":{"22":51.4,"13":48.6},
+   "fonte":"https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-514-contra-486-de-lula-em-votos-validos-diz-pesquisa/","conferido":True},
+  {"instituto":"Instituto França","campo":["2026-10-16","2026-10-20"],"registro":"BR-07896/2026","validos":{"22":50.8,"13":49.2},
+   "fonte":"https://www.congressoemfoco.com.br/noticia/123423/flavio-tem-50-8-contra-49-2-de-lula-em-pesquisa-do-instituto-franca","conferido":True},
+  {"instituto":"Vetor Arrow","campo":["2026-10-22","2026-10-23"],"amostra":6867,"margem":1.2,"registro":"BR-06957/2026",
+   "totais":{"22":50,"13":44.9},"validos":{"22":52.7,"13":47.3},
+   "fonte":"https://agendadopoder.com.br/flavio-bolsonaro-tem-527-dos-votos-validos-contra-473-de-lula-aponta-pesquisa-vetor-arrow/","conferido":True},
 ]
 fin=[]
 for p in o:
@@ -26,8 +34,17 @@ for p in o:
     if k in NOTICIAS and not p['conferido']: p['fonte'],p['divulgacao']=NOTICIAS[k]; p['conferido']=True
     p['fonte']=p['fonte'] or WP
     fin.append(p)
-ja=set((p['instituto'],p['campo'][1]) for p in fin)
-fin+=[m for m in MANUAIS if (m['instituto'],m['campo'][1]) not in ja]
+# linhas da Wikipédia que repetem outra pesquisa (a Veritá de 19–23/10 copia os números da de 18–22/10;
+# nenhuma reportagem traz rodada nova até 24/10)
+IGNORAR={("Veritá","2026-10-23")}
+fin=[p for p in fin if (p['instituto'],p['campo'][1]) not in IGNORAR]
+por={(p['instituto'],p['campo'][1]):p for p in fin}
+for m in MANUAIS:
+    p=por.get((m['instituto'],m['campo'][1]))
+    if p is None:
+        if 'totais' in m or 'validos' in m: fin.append({'contratante':None,'divulgacao':None,'amostra':None,'margem':None,'registro':None,'totais':None,'validos':None,**m})
+    elif not p['conferido']: p.update(m)
+    else: p.update({k:v for k,v in m.items() if p.get(k) is None})  # já conferida: só completa o que falta
 fin.sort(key=lambda o:(o['campo'][1],o['instituto']),reverse=True)
 for p in fin:
     if p['margem'] is not None and float(p['margem']).is_integer(): p['margem']=int(p['margem'])
@@ -47,6 +64,7 @@ for blk in re.split(r'\n\|-[^\n]*','\n'.join(L[a:b])):
     am=re.sub(r'\D','',lines[2]) if len(lines)>2 else ''
     prox.append({'instituto':nome,'campo':[f'2026-{MES[m[0][1]]:02d}-{int(m[0][0]):02d}',f'2026-{MES[m[-1][1]]:02d}-{int(m[-1][0]):02d}'],
                  'divulgacao':f'{dv.group(3)}-{dv.group(2)}-{dv.group(1)}','amostra':int(am) if am else None,'registro':reg.group(0) if reg else None})
+prox=[x for x in prox if x['divulgacao']<='2026-10-25']  # registro com divulgação depois da eleição não interessa
 prox.sort(key=lambda x:(x['divulgacao'],x['instituto']))
 d=json.load(open('public/pesquisas.json'))
 d['atualizado']=sys.argv[1]; d['pesquisas']=fin; d['proximas']=prox

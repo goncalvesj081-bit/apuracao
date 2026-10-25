@@ -1650,7 +1650,7 @@ function renderCidades(d) {
 // Pesquisas de 2º turno para presidente, reunidas em pesquisas.json (com a fonte de cada uma).
 let pesquisas = null;
 const carregarPesquisas = () =>
-  (pesquisas ||= fetch("pesquisas.json?v=28", { cache: "no-store" }).then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status)))));
+  (pesquisas ||= fetch("pesquisas.json?v=29", { cache: "no-store" }).then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status)))));
 
 const dataBR = (iso) => (iso ? new Date(iso + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }) : "—");
 const fimCampo = (p) => (p.campo ? p.campo[1] : p.divulgacao);

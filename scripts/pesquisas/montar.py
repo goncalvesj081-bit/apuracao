@@ -39,7 +39,7 @@ def url(blk):
     return u[0] if u else None
 def citedate(blk):
     m=re.search(r'\|\s*date=\s*(\d{4}-\d{2}-\d{2})',blk); return m.group(1) if m else None
-NOME={'DataFolha':'Datafolha','PoderData/Aya':'PoderData','Nexus/BTG':'Nexus','BTG/Nexus':'Nexus','Meio/Ideia':'Ideia','CNT/MDA':'MDA','Alfa Inteligência':'Alfa','Real Time Big Data':'Real Time Big Data','Real Time':'Real Time Big Data','Veritá':'Veritá','Verita':'Veritá','Vox Brasil':'Vox','Vox':'Vox'}
+NOME={'IFP':'Instituto França','França':'Instituto França','Instituto França':'Instituto França','Datatrends':'DataTrends','DataFolha':'Datafolha','PoderData/Aya':'PoderData','Nexus/BTG':'Nexus','BTG/Nexus':'Nexus','Meio/Ideia':'Ideia','CNT/MDA':'MDA','Alfa Inteligência':'Alfa','Real Time Big Data':'Real Time Big Data','Real Time':'Real Time Big Data','Veritá':'Veritá','Verita':'Veritá','Vox Brasil':'Vox','Vox':'Vox'}
 CONTR={'Nexus/BTG':'BTG Pactual','BTG/Nexus':'BTG Pactual','Meio/Ideia':'Meio','CNT/MDA':'CNT'}
 # --- en
 en=[]
@@ -76,7 +76,8 @@ def bate(e,p):
 out=[]; usados=set()
 for e in en:
     m=None
-    for i,p in enumerate(pt):
+    # tenta primeiro a linha com o mesmo fim de campo (a lista em português às vezes repete a pesquisa)
+    for i,p in sorted(enumerate(pt), key=lambda ip: dias(e['campo'][1], ip[1]['campo'][1])):
         if i in usados: continue
         r=bate(e,p)
         if r: m=(i,p,r); break

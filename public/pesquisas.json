@@ -1,11 +1,226 @@
 {
-  "atualizado": "2026-10-23",
+  "atualizado": "2026-10-24",
   "nota": "Pesquisas de 2º turno para presidente (Flávio Bolsonaro × Lula) desde o 1º turno, reunidas das tabelas da Wikipédia em português e em inglês e conferidas nas reportagens, com o link de cada fonte. \"Conferida\" = os mesmos números aparecem em duas fontes independentes; \"a conferir\" = só uma delas traz a pesquisa ou as datas não batem.",
   "candidatos": {
     "22": "FLAVIO BOLSONARO",
     "13": "LULA"
   },
   "pesquisas": [
+    {
+      "instituto": "Quaest",
+      "contratante": null,
+      "campo": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "divulgacao": "2026-10-24",
+      "amostra": 3702,
+      "margem": 2,
+      "registro": "BR-09158/2026",
+      "totais": {
+        "22": 46,
+        "13": 45
+      },
+      "validos": null,
+      "fonte": "https://g1.globo.com/politica/eleicoes/2026/pesquisa-eleitoral/noticia/2026/10/24/quaest-2o-turno-votos-validos.ghtml",
+      "conferido": true
+    },
+    {
+      "instituto": "Palver",
+      "contratante": null,
+      "campo": [
+        "2026-10-22",
+        "2026-10-24"
+      ],
+      "divulgacao": null,
+      "amostra": 5000,
+      "margem": 2.2,
+      "registro": "BR-01794/2026",
+      "totais": {
+        "22": 50,
+        "13": 49
+      },
+      "validos": null,
+      "fonte": "https://exame.com/brasil/pesquisa-para-presidente-palver-flavio-bolsonaro-tem-50-e-lula-49-no-2o-turno/",
+      "conferido": true
+    },
+    {
+      "instituto": "Nexus",
+      "contratante": "BTG Pactual",
+      "campo": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "divulgacao": null,
+      "amostra": 2000,
+      "margem": 2.2,
+      "registro": "BR-08234/2026",
+      "totais": {
+        "22": 47,
+        "13": 46
+      },
+      "validos": null,
+      "fonte": "https://veja.abril.com.br/politica/a-nova-pesquisa-btg-nexus-sobre-a-disputa-flavio-x-lula-a-ultima-antes-do-segundo-turno/",
+      "conferido": true
+    },
+    {
+      "instituto": "Gerp",
+      "contratante": null,
+      "campo": [
+        "2026-10-22",
+        "2026-10-24"
+      ],
+      "divulgacao": "2026-10-24",
+      "amostra": 2400,
+      "margem": 2,
+      "registro": "BR-09327/2026",
+      "totais": {
+        "22": 49,
+        "13": 46
+      },
+      "validos": null,
+      "fonte": "https://www.cnnbrasil.com.br/eleicoes/gerp-flavio-tem-52-dos-votos-validos-no-2o-turno-lula-48-2/",
+      "conferido": true
+    },
+    {
+      "instituto": "Futura",
+      "contratante": null,
+      "campo": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "divulgacao": null,
+      "amostra": 2000,
+      "margem": 2.2,
+      "registro": "BR-09726/2026",
+      "totais": {
+        "22": 48.2,
+        "13": 47.9
+      },
+      "validos": null,
+      "fonte": "https://exame.com/brasil/pesquisa-futura-flavio-bolsonaro-tem-501-e-lula-499-no-2o-turno/",
+      "conferido": true
+    },
+    {
+      "instituto": "Datafolha",
+      "contratante": null,
+      "campo": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "divulgacao": "2026-10-24",
+      "amostra": 4050,
+      "margem": 2,
+      "registro": "BR-09540/2026",
+      "totais": {
+        "22": 48,
+        "13": 47
+      },
+      "validos": null,
+      "fonte": "https://www1.folha.uol.com.br/poder/2026/10/datafolha-flavio-bolsonaro-tem-51-dos-votos-validos-e-lula-49-em-empate-tecnico.shtml",
+      "conferido": true
+    },
+    {
+      "instituto": "Vetor Arrow",
+      "contratante": null,
+      "campo": [
+        "2026-10-22",
+        "2026-10-23"
+      ],
+      "divulgacao": null,
+      "amostra": 6867,
+      "margem": 1.2,
+      "registro": "BR-06957/2026",
+      "totais": {
+        "22": 50,
+        "13": 44.9
+      },
+      "validos": {
+        "22": 52.7,
+        "13": 47.3
+      },
+      "fonte": "https://agendadopoder.com.br/flavio-bolsonaro-tem-527-dos-votos-validos-contra-473-de-lula-aponta-pesquisa-vetor-arrow/",
+      "conferido": true
+    },
+    {
+      "instituto": "MDA",
+      "contratante": "CNT",
+      "campo": [
+        "2026-10-21",
+        "2026-10-23"
+      ],
+      "divulgacao": "2026-10-23",
+      "amostra": 2032,
+      "margem": 2.2,
+      "registro": "BR-02136/2026",
+      "totais": {
+        "22": 46.3,
+        "13": 45
+      },
+      "validos": null,
+      "fonte": "https://www.reuters.com/world/americas/flavio-bolsonaro-lula-about-even-ahead-brazil-election-runoff-cntmda-poll-shows-2026-10-24/",
+      "conferido": true
+    },
+    {
+      "instituto": "Instituto França",
+      "contratante": null,
+      "campo": [
+        "2026-10-21",
+        "2026-10-23"
+      ],
+      "divulgacao": "2026-10-23",
+      "amostra": 1537,
+      "margem": 2.5,
+      "registro": "BR-04863/2026",
+      "totais": {
+        "22": 45.6,
+        "13": 43.1
+      },
+      "validos": {
+        "22": 51.4,
+        "13": 48.6
+      },
+      "fonte": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-514-contra-486-de-lula-em-votos-validos-diz-pesquisa/",
+      "conferido": true
+    },
+    {
+      "instituto": "Colectta",
+      "contratante": null,
+      "campo": [
+        "2026-10-23",
+        "2026-10-23"
+      ],
+      "divulgacao": "2026-10-24",
+      "amostra": 3000,
+      "margem": 2,
+      "registro": "BR-05601/2026",
+      "totais": {
+        "22": 46,
+        "13": 46.5
+      },
+      "validos": null,
+      "fonte": "https://brazileconomy.com.br/eleicoes-2026/2026/10/lula-tem-503-dos-votos-validos-e-flavio-497-aponta-pesquisa-brazil-economycolectta/",
+      "conferido": true
+    },
+    {
+      "instituto": "AtlasIntel",
+      "contratante": null,
+      "campo": [
+        "2026-10-18",
+        "2026-10-23"
+      ],
+      "divulgacao": null,
+      "amostra": 4990,
+      "margem": 1,
+      "registro": "BR-06380/2026",
+      "totais": {
+        "22": 49.9,
+        "13": 48.4
+      },
+      "validos": null,
+      "fonte": "https://atlasintel.org/poll/brazil-national-pesquisa-atlasbloomberg-2026-10-24",
+      "conferido": true
+    },
     {
       "instituto": "Vox",
       "contratante": null,
@@ -44,7 +259,7 @@
         "22": 51.3,
         "13": 48.7
       },
-      "fonte": "https://ncnews.com.br/2026/10/23/verita-flavio-bolsonaro-lula-2-turno/",
+      "fonte": "https://exame.com/brasil/pesquisa-verita-flavio-bolsonaro-tem-513-e-lula-487-dos-votos-validos/",
       "conferido": true
     },
     {
@@ -54,7 +269,7 @@
         "2026-10-19",
         "2026-10-22"
       ],
-      "divulgacao": "2026-10-23",
+      "divulgacao": null,
       "amostra": 2000,
       "margem": 2,
       "registro": "BR-09670/2026",
@@ -63,7 +278,26 @@
         "13": 45
       },
       "validos": null,
-      "fonte": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/real-time-big-data-presidente-outubro-2026-segundo-turno-2/",
+      "fonte": "https://www.riotimesonline.com/real-time-big-data-poll-flavio-52-lula-48-oct-23-runoff-2026/",
+      "conferido": true
+    },
+    {
+      "instituto": "Ipespe",
+      "contratante": null,
+      "campo": [
+        "2026-10-20",
+        "2026-10-22"
+      ],
+      "divulgacao": "2026-10-23",
+      "amostra": 1500,
+      "margem": 2.6,
+      "registro": "BR-04350/2026",
+      "totais": {
+        "22": 48,
+        "13": 47
+      },
+      "validos": null,
+      "fonte": "https://www.cnnbrasil.com.br/eleicoes/ipespe-abrapel-flavio-tem-505-dos-votos-validos-lula-495/",
       "conferido": true
     },
     {
@@ -89,19 +323,22 @@
       "instituto": "Alfa",
       "contratante": null,
       "campo": [
-        "2026-10-18",
+        "2026-10-19",
         "2026-10-22"
       ],
       "divulgacao": "2026-10-23",
       "amostra": 2700,
       "margem": 1.9,
       "registro": "BR-08496/2026",
-      "totais": null,
+      "totais": {
+        "22": 49.9,
+        "13": 46
+      },
       "validos": {
         "22": 52,
         "13": 48
       },
-      "fonte": "https://exame.com/brasil/pesquisa-alfa-a-dois-dias-do-2o-turno-flavio-bolsonaro-tem-52-e-lula-48/",
+      "fonte": "https://www.cnnbrasil.com.br/eleicoes/alfa-flavio-tem-52-dos-votos-validos-no-2o-turno-lula-48/",
       "conferido": true
     },
     {
@@ -165,6 +402,25 @@
       "conferido": true
     },
     {
+      "instituto": "DataTrends",
+      "contratante": null,
+      "campo": [
+        "2026-10-19",
+        "2026-10-21"
+      ],
+      "divulgacao": "2026-10-23",
+      "amostra": 4,
+      "margem": 2.19,
+      "registro": "BR-03365/2026",
+      "totais": {
+        "22": 50,
+        "13": 46
+      },
+      "validos": null,
+      "fonte": "https://www.riotimesonline.com/datatrends-poll-flavio-51-9-lula-48-1-runoff-2026/",
+      "conferido": true
+    },
+    {
       "instituto": "Quaest",
       "contratante": null,
       "campo": [
@@ -203,7 +459,7 @@
       "conferido": true
     },
     {
-      "instituto": "IFP",
+      "instituto": "Instituto França",
       "contratante": null,
       "campo": [
         "2026-10-16",
@@ -217,9 +473,12 @@
         "22": 40.95,
         "13": 39.65
       },
-      "validos": null,
-      "fonte": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-      "conferido": false
+      "validos": {
+        "22": 50.8,
+        "13": 49.2
+      },
+      "fonte": "https://www.congressoemfoco.com.br/noticia/123423/flavio-tem-50-8-contra-49-2-de-lula-em-pesquisa-do-instituto-franca",
+      "conferido": true
     },
     {
       "instituto": "Futura",
@@ -928,116 +1187,6 @@
   ],
   "proximas": [
     {
-      "instituto": "Vetor Arrow",
-      "campo": [
-        "2026-10-22",
-        "2026-10-23"
-      ],
-      "divulgacao": "2026-10-20",
-      "amostra": 3000,
-      "registro": "BR-06957/2026"
-    },
-    {
-      "instituto": "Gerp",
-      "campo": [
-        "2026-10-21",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-22",
-      "amostra": 2400,
-      "registro": "BR-09327/2026"
-    },
-    {
-      "instituto": "DataTrends",
-      "campo": [
-        "2026-10-19",
-        "2026-10-21"
-      ],
-      "divulgacao": "2026-10-23",
-      "amostra": 2000,
-      "registro": "BR-03365/2026"
-    },
-    {
-      "instituto": "Ipespe",
-      "campo": [
-        "2026-10-20",
-        "2026-10-22"
-      ],
-      "divulgacao": "2026-10-23",
-      "amostra": 1500,
-      "registro": "BR-04350/2026"
-    },
-    {
-      "instituto": "Veritá",
-      "campo": [
-        "2026-10-18",
-        "2026-10-22"
-      ],
-      "divulgacao": "2026-10-23",
-      "amostra": 15554,
-      "registro": "BR-06070/2026"
-    },
-    {
-      "instituto": "AtlasIntel",
-      "campo": [
-        "2026-10-18",
-        "2026-10-23"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 5000,
-      "registro": "BR-06380/2026"
-    },
-    {
-      "instituto": "Datafolha",
-      "campo": [
-        "2026-10-23",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 4050,
-      "registro": "BR-09540/2026"
-    },
-    {
-      "instituto": "Futura",
-      "campo": [
-        "2026-10-21",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 2000,
-      "registro": "BR-09726/2026"
-    },
-    {
-      "instituto": "MDA",
-      "campo": [
-        "2026-10-21",
-        "2026-10-23"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 2002,
-      "registro": "BR-02136/2026"
-    },
-    {
-      "instituto": "Nexus",
-      "campo": [
-        "2026-10-23",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 2000,
-      "registro": "BR-08234/2026"
-    },
-    {
-      "instituto": "Palver",
-      "campo": [
-        "2026-10-22",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 5000,
-      "registro": "BR-01794/2026"
-    },
-    {
       "instituto": "Phoenix",
       "campo": [
         "2026-10-19",
@@ -1046,26 +1195,6 @@
       "divulgacao": "2026-10-24",
       "amostra": 4001,
       "registro": "BR-06173/2026"
-    },
-    {
-      "instituto": "Quaest",
-      "campo": [
-        "2026-10-23",
-        "2026-10-24"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 3702,
-      "registro": "BR-09158/2026"
-    },
-    {
-      "instituto": "Veritá",
-      "campo": [
-        "2026-10-19",
-        "2026-10-23"
-      ],
-      "divulgacao": "2026-10-24",
-      "amostra": 15554,
-      "registro": "BR-03181/2026"
     },
     {
       "instituto": "PoderData",
