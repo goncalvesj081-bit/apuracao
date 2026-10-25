@@ -85,6 +85,10 @@ function parseTse(j) {
   };
 }
 
+// até quando os downloads de cidades devem esperar depois de um 429 do TSE
+let pausaTse = 0;
+export const tseOcupado = () => Date.now() < pausaTse;
+
 export class TseSource {
   /** @param {{base: string, ano: string, eleicao: string, cargo: string}} cfg */
   constructor(cfg) {
@@ -96,17 +100,31 @@ export class TseSource {
     return `${this.cfg.base}/oficial/ele${this.cfg.ano}/${this.cfg.eleicao}`;
   }
 
-  async json(url) {
-    let r;
-    try {
-      r = await fetch(url, { cache: "no-store" });
-    } catch {
-      const err = new Error("Sem acesso ao site do TSE. Confira a internet ou rode o painel com node server.js.");
-      err.semAcesso = true;
-      throw err;
+  /**
+   * Busca um arquivo do TSE. Na noite da apuração o site limita os pedidos (429) e às vezes recusa
+   * (403/5xx ou falha de rede): tenta de novo com espera crescente e avisa os downloads de cidades
+   * para darem uma pausa (tseOcupado).
+   */
+  async json(url, tentativas = 3) {
+    for (let i = 0; ; i++) {
+      let r = null;
+      try {
+        r = await fetch(url, { cache: "no-store" });
+      } catch {}
+      if (r?.ok) return r.json();
+      if (r?.status === 429) {
+        const espera = Math.min(60, Number(r.headers.get("retry-after")) || 15);
+        pausaTse = Math.max(pausaTse, Date.now() + espera * 1000);
+      }
+      const tentaDeNovo = !r || r.status === 429 || r.status === 403 || r.status >= 500;
+      if (!tentaDeNovo || i + 1 >= tentativas) {
+        if (r) throw new Error(`${r.status} em ${url}`);
+        const err = new Error("Sem acesso ao site do TSE. Confira a internet ou rode o painel com node server.js.");
+        err.semAcesso = true;
+        throw err;
+      }
+      await new Promise((ok) => setTimeout(ok, 700 * 2 ** i + Math.random() * 500));
     }
-    if (!r.ok) throw new Error(`${r.status} em ${url}`);
-    return r.json();
   }
 
   file(abr) {
@@ -140,7 +158,7 @@ export class TseSource {
   }
 
   async municipio(uf, codigo) {
-    return parseTse(await this.json(this.file(uf.toLowerCase() + codigo)));
+    return parseTse(await this.json(this.file(uf.toLowerCase() + codigo), 1));
   }
 
   /**

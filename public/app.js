@@ -1,4 +1,4 @@
-import { UFS, REGIOES, CARGOS, TseSource, DemoSource, ReplaySource, aggregate } from "./data.js?v=17";
+import { UFS, REGIOES, CARGOS, TseSource, DemoSource, ReplaySource, aggregate, tseOcupado } from "./data.js?v=34";
 import { chancePorCidades, PERFIS, aleatorio, normal } from "./modelo.js?v=17";
 import { ACESSOS } from "./config.js?v=24";
 
@@ -124,8 +124,13 @@ function carregarEstados(d) {
       else if (d.estados[uf]) falhas++;
       else d.estados[uf] = null;
     });
-    d.falhas = falhas + (!br && d.brasil ? 1 : 0);
-    d.brasil = br || (d.carregado && d.brasil) || (est.some(Boolean) ? aggregate(est) : null);
+    // sem o arquivo do Brasil: soma os estados (o exterior entra como ZZ), cada um com o dado mais novo que
+    // tiver; se algum estado nunca carregou, a soma ficaria incompleta e só vale na falta de qualquer outro dado
+    const ultimos = ufs.map((uf) => d.estados[uf]);
+    const soma = !br && ultimos.every(Boolean) ? aggregate(ultimos) : null;
+    const parcial = !br && !soma && !(d.carregado && d.brasil) && est.some(Boolean);
+    d.falhas = falhas + (!br && !soma && d.brasil ? 1 : 0) + (parcial ? ultimos.filter((x) => !x).length : 0);
+    d.brasil = br || soma || (d.carregado && d.brasil) || (parcial ? aggregate(ultimos) : null);
     if (usaCidades(d)) await carregarAndamento(d);
     d.carregado = true;
     d.lido = new Date();
@@ -196,10 +201,13 @@ function carregarCidades(d, uf, ativo) {
       alvo,
       async (m) => {
         if (!ativo()) return;
+        // o TSE pediu calma (429): espera antes de seguir com as cidades, para não travar o resto
+        while (tseOcupado() && ativo()) await new Promise((ok) => setTimeout(ok, 1000));
+        if (!ativo()) return;
         m.r = await d.fonte.municipio(uf, m.codigo);
         agendarRender();
       },
-      24,
+      8,
     );
   })().finally(() => delete d.cidadesEmCurso[uf]);
   return d.cidadesEmCurso[uf];
